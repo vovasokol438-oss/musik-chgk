@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Вход</title>
+  <style>
+    body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f0f0f0; }
+    .login { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.2); }
+    input { padding: 10px; margin: 5px 0; width: 100%; border-radius: 5px; border: 1px solid #ccc; }
+    button { padding: 10px; width: 100%; border: none; border-radius: 5px; background: #4CAF50; color: white; font-size: 16px; cursor: pointer; }
+    button:hover { background: #45a049; }
+  </style>
+</head>
+<body>
+  <div class="login">
+    <h2>Вход</h2>
+    <input type="password" id="password" placeholder="Введите пароль">
+    <button id="loginBtn">Зайти</button>
+  </div>
+
+  <script>
+    const correctPassword = "0641"; // здесь можно поменять пароль
+    const input = document.getElementById("password");
+    const btn = document.getElementById("loginBtn");
+
+    function checkPassword() {
+      if(input.value === correctPassword) {
+        window.location.href = "music.html"; // переходим на главную страницу
+      } else {
+        alert("Неверный пароль!");
+      }
+    }
+
+    btn.addEventListener("click", checkPassword);
+    input.addEventListener("keypress", function(e) {
+      if(e.key === "Enter") checkPassword();
+    });
+  </script>
+</body>
+</html>
